@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+    php:
+        build:
+            target: php-dev-base
+            context: .
+        volumes:
+            - .:/var/www/html
+            - ~/.composer:/var/www/.composer
+        command: ./artisan serve --host 0.0.0.0 --port 80
+        environment:
+            DOMAIN_NAME: default:laravel.loc
+
